@@ -11,7 +11,7 @@ public class Calendar {
     public Iterable<LocalDate> from(LocalDate localDate){ return () -> createIterFrom(localDate);}
 
     private Iterator<LocalDate> createIterFrom(LocalDate localDate) {
-        return new Iterator<LocalDate>() {
+        return new Iterator<>() {
             private LocalDate currentDate = localDate.minusDays(1);
 
             @Override
@@ -22,7 +22,7 @@ public class Calendar {
             @Override
             public LocalDate next() {
                 while (true) {
-                    currentDate.plusDays(1);
+                    currentDate = currentDate.plusDays(1);
                     if (isWorkingDay(currentDate)) return currentDate;
                 }
             }

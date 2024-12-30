@@ -8,7 +8,7 @@ import spark.Response;
 import java.time.LocalDate;
 
 public class CalculateWorkingDaysAdapter {
-    public CalculateWorkingDaysCommand.Input adapt(Request request){
+    public static CalculateWorkingDaysCommand.Input adapt(Request request){
         return new CalculateWorkingDaysCommand.Input() {
             @Override
             public LocalDate start() {
@@ -22,7 +22,7 @@ public class CalculateWorkingDaysAdapter {
         };
     }
 
-    public CalculateWorkingDaysCommand.Output adapt(Response response){
+    public static CalculateWorkingDaysCommand.Output adapt(Response response){
         return new CalculateWorkingDaysCommand.Output() {
             @Override
             public void days(int days) {
